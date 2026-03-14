@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
+
 import '../model/song.dart';
 import 'package:http/http.dart' as http;
 
@@ -27,8 +29,7 @@ class RemoteDataSoure implements DataSource {
 
 class LocalDataSource implements DataSource {
   @override
-  Future<List<Song>?> loadData() {
-    // TODO: implement loadData
-    throw UnimplementedError();
+  Future<List<Song>?> loadData() async {
+    final String response = await rootBundle.loadString('asset')
   }
 }
