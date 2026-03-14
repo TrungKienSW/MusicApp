@@ -16,7 +16,7 @@ class RemoteDataSoure implements DataSource {
     if (response.statusCode == 200) {
       final bodyContent = utf8.decode(response.bodyBytes);
       var songWrapper = jsonDecode(bodyContent) as Map;
-      var songList = songWrapper['songs'];
+      var songList = songWrapper['songs'] as List;
       List<Song> songs = songList.map((song) => Song.fromJson(song)).toList();
       return songs;
     } else {
